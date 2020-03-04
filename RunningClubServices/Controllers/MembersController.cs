@@ -15,16 +15,19 @@ namespace RunningClubServices.Controllers
     {
         private IMembersDao _memberDao;
 
+        /*
          public MembersController(IMembersDao dao)
         {
             _memberDao = dao;
         }
 
-
+    */
         [HttpGet]
         public List<MembersModel> Get()
         {
             List<MembersModel> memberList = new List<MembersModel>();
+
+            _memberDao = new MembersTestDao();
 
             try
             {
