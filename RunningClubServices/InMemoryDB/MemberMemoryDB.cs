@@ -32,15 +32,18 @@ namespace RunningClubServices.MemoryDB
         }
 
 
-        public static void Add(List<MembersModel> membersModels)
+        public static void Save(List<MembersModel> membersModels)
         {
-            foreach(var memberModel in membersModels)
+            if (membersModels != null)
             {
-                Add(memberModel);
+                foreach (var memberModel in membersModels)
+                {
+                    Save(memberModel);
+                }
             }
         }
 
-        public static void Add(MembersModel membersModel)
+        public static void Save(MembersModel membersModel)
         {
             if(_memberList == null)
                 _memberList = new List<MembersModel>();
@@ -73,15 +76,22 @@ namespace RunningClubServices.MemoryDB
                 return; 
             }
 
+            _id++;
+            membersModel.Id = _id;
             _memberList.Add(membersModel);
 
 
         }
 
-        public static void Clear()
+        public static void Delete()
         {
             _memberList = null;
         }
 
+        public static void Delete(int id)
+        {
+          var memberList =  _memberList.Where(c => c.Id == id).FirstOrDefault();
+           _memberList.Remove(memberList);
+        }
     }
 }

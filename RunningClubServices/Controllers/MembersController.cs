@@ -27,11 +27,13 @@ namespace RunningClubServices.Controllers
         {
             List<MembersModel> memberList = new List<MembersModel>();
 
-            _memberDao = new MembersTestDao();
+            _memberDao = new MembersMemoryDao();
 
             try
             {
                 memberList = _memberDao.Get();
+                if (memberList == null)
+                    memberList = new List<MembersModel>();
             }
             catch (Exception ex)
             {
@@ -41,10 +43,31 @@ namespace RunningClubServices.Controllers
             return memberList;
         }
 
+        /*
+        [HttpPost]
+        public MembersModel Post(MembersModel membersModel)
+        {
+
+            _memberDao = new MembersMemoryDao();
+
+            try
+            {
+                _memberDao.Save(membersModel);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return membersModel;
+        }
+        */
 
         [HttpPost]
         public List<MembersModel> Post(List<MembersModel> membersModels)
         {
+
+                _memberDao = new MembersMemoryDao();
             try
             {
                 _memberDao.Save(membersModels);

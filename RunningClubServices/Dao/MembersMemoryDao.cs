@@ -11,7 +11,10 @@ namespace RunningClubServices.Dao
     {
         public void Delete(MembersModel membersModel)
         {
-            throw new NotImplementedException();
+            if (membersModel != null)
+            {
+                MemberMemoryDB.Delete(membersModel.Id);
+            }
         }
 
         public List<MembersModel> Get()
@@ -26,17 +29,17 @@ namespace RunningClubServices.Dao
 
         public void Save(MembersModel membersModel)
         {
-            MemberMemoryDB.Add(membersModel);
+            MemberMemoryDB.Save(membersModel);
         }
 
         public void Save(List<MembersModel> membersModels)
         {
-            MemberMemoryDB.Add(membersModels);
+            MemberMemoryDB.Save(membersModels);
         }
 
         public void Update(MembersModel membersModel)
         {
-            MemberMemoryDB.Add(membersModel);
+            MemberMemoryDB.Save(membersModel);
         }
     
 
