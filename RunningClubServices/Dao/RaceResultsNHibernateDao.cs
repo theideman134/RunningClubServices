@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RunningClubServices.Dao
 {
-    public class RaceResultsDao : IRaceResultsDao
+    public class RaceResultsNHibernateDao : IRaceResultsDao
     {
         public void Delete(RaceResultsModel raceResultsModel)
         {

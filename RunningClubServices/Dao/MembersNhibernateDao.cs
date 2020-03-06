@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RunningClubServices.Dao
 {
-    public class MembersDao : IMembersDao
+    public class MembersNhibernateDao : IMembersDao
     {
         public void Delete(MembersModel membersModel)
         {
