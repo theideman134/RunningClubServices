@@ -27,11 +27,7 @@ namespace RunningClubServices
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-/*
-            IMembersDao dao = new MembersTestDao();
-            var membersController = new MembersController(dao);
-            services.AddSingleton<MembersController>(membersController);
-            */
+            services.AddTransient<IMembersDao,MembersMemoryDao>();       
             services.AddControllers();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

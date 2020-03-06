@@ -15,19 +15,17 @@ namespace RunningClubServices.Controllers
     {
         private IMembersDao _memberDao;
 
-        /*
-         public MembersController(IMembersDao dao)
+
+        public MembersController(IMembersDao dao)
         {
             _memberDao = dao;
         }
 
-    */
+
         [HttpGet]
         public List<MembersModel> Get()
         {
             List<MembersModel> memberList = new List<MembersModel>();
-
-            _memberDao = new MembersMemoryDao();
 
             try
             {
@@ -43,31 +41,11 @@ namespace RunningClubServices.Controllers
             return memberList;
         }
 
-        /*
-        [HttpPost]
-        public MembersModel Post(MembersModel membersModel)
-        {
-
-            _memberDao = new MembersMemoryDao();
-
-            try
-            {
-                _memberDao.Save(membersModel);
-            }
-            catch (Exception ex)
-            {
-
-            }
-
-            return membersModel;
-        }
-        */
 
         [HttpPost]
         public List<MembersModel> Post(List<MembersModel> membersModels)
         {
 
-                _memberDao = new MembersMemoryDao();
             try
             {
                 _memberDao.Save(membersModels);
