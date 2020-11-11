@@ -15,7 +15,6 @@ namespace RunningClubServices.Controllers
     {
         private IMembersDao _memberDao;
 
-
         public MembersController(IMembersDao dao)
         {
             _memberDao = dao;
@@ -29,7 +28,7 @@ namespace RunningClubServices.Controllers
 
             try
             {
-                memberList = _memberDao.Get();
+                memberList = _memberDao.Load();
                 if (memberList == null)
                     memberList = new List<MembersModel>();
             }
@@ -41,6 +40,24 @@ namespace RunningClubServices.Controllers
             return memberList;
         }
 
+        [HttpGet("{id}")]
+        public MembersModel Get(int id)
+        {
+            MembersModel model = null;
+
+            try
+            {
+                model = _memberDao.Load(id);
+                if (model == null)
+                    model = new MembersModel();
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return model;
+        }
 
         [HttpPost]
         public List<MembersModel> Post(List<MembersModel> membersModels)

@@ -30,7 +30,7 @@ namespace RunningClubServices
              
 
 
-            services.AddTransient<IMembersDao,MembersMemoryDao>();       
+            services.AddTransient<IMembersDao,MembersSqlDao>();       
             services.AddControllers();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

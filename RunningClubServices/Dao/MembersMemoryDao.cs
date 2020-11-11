@@ -17,12 +17,12 @@ namespace RunningClubServices.Dao
             }
         }
 
-        public List<MembersModel> Get()
+        public List<MembersModel> Load()
         {
             return MemberMemoryDB.Get();
         }
 
-        public MembersModel Get(int id)
+        public MembersModel Load(int id)
         {
             return MemberMemoryDB.Get(id);
         }

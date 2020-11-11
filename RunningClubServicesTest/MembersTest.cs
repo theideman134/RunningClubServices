@@ -19,18 +19,18 @@ namespace RunningClubServicesTest
 
             var mock = new Mock<IMembersDao>();
             // mock.Setup(foo => foo.Submit(ref It.Ref<Bar>.IsAny)).Returns(true);
-            mock.Setup(c => c.Get()).Returns(new List<MembersModel>());
+            mock.Setup(c => c.Load()).Returns(new List<MembersModel>());
             MembersModel memberModel = null;
 
             mock.Object.Save(memberModel);
 
-            var membersGetList = mock.Object.Get();
+            var membersGetList = mock.Object.Load();
 
             Assert.AreEqual(0, membersGetList.Count);
 
         }
 
-        /*
+        
         [Test]
         public void MemberPostMemoryTest()
         {
@@ -42,9 +42,9 @@ namespace RunningClubServicesTest
            var memberDao = new MembersMemoryDao();
             memberDao.Save(members);
 
-            var membersGetList = memberDao.Get();
+            var membersGetList = memberDao.Load();
 
-            Assert.AreEqual(3, membersGetList.Count);
+            Assert.AreEqual(2, membersGetList.Count);
             Assert.AreEqual(1, membersGetList[0].Id);
             Assert.AreEqual("Bob", membersGetList[0].FirstName);
             Assert.AreEqual("Jones", membersGetList[0].LastName);
@@ -66,7 +66,7 @@ namespace RunningClubServicesTest
 
             memberDao.Delete(member1);
 
-            var membersGetList = memberDao.Get();
+            var membersGetList = memberDao.Load();
 
             Assert.AreEqual(2, membersGetList.Count);
             Assert.AreEqual(2, membersGetList[0].Id);
@@ -87,7 +87,7 @@ namespace RunningClubServicesTest
 
             memberDao.Delete(member1);
 
-            var membersGetList = memberDao.Get();
+            var membersGetList = memberDao.Load();
 
             Assert.AreEqual(1, membersGetList.Count);
             Assert.AreEqual(2, membersGetList[0].Id);
@@ -105,6 +105,6 @@ namespace RunningClubServicesTest
             Assert.AreEqual("Bob", membersGetList[1].FirstName);
             Assert.AreEqual("Jones", membersGetList[1].LastName);
         }
-        */
+        
     }
 }

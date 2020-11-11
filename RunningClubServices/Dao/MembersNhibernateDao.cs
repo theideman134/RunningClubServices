@@ -13,12 +13,12 @@ namespace RunningClubServices.Dao
             throw new NotImplementedException();
         }
 
-        public List<MembersModel> Get()
+        public List<MembersModel> Load()
         {
             throw new NotImplementedException();
         }
 
-        public MembersModel Get(int i)
+        public MembersModel Load(int i)
         {
             throw new NotImplementedException();
         }

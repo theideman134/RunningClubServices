@@ -13,7 +13,7 @@ namespace RunningClubServices.Dao
             throw new NotImplementedException();
         }
 
-        public List<MembersModel> Get()
+        public List<MembersModel> Load()
         {
             var memberList = new List<MembersModel>();
             var memberModel1 = new MembersModel() { FirstName = "Bob", LastName = "Jensen" };
@@ -25,7 +25,7 @@ namespace RunningClubServices.Dao
             return memberList;
         }
 
-        public MembersModel Get(int i)
+        public MembersModel Load(int i)
         {
             throw new NotImplementedException();
         }
