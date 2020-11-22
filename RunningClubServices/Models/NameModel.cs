@@ -9,7 +9,7 @@ namespace RunningClubServices.Models
     {
       public string FirstName { get; set; }
       public string LastName { get; set; }
-      public string FirstNameLastName { get; }
-      public string LastNameFirstName { get;  }
+ //     public string FirstNameLastName { get; }
+ //     public string LastNameFirstName { get;  }
     }
 }

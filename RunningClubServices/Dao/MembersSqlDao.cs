@@ -13,6 +13,8 @@ namespace RunningClubServices.Dao
     {
         private const string connectionString = "Data Source=TODD-PC\\SQLEXPRESS;Initial Catalog=RunningClub;Integrated Security=True;"; //Asynchronous Processing=true;";  
 
+
+
         public MembersSqlDao()
         {
 
@@ -31,7 +33,7 @@ namespace RunningClubServices.Dao
 
             var memberList = new List<MembersModel>();
 
-            string queryString = "SELECT id,first_name,last_name FROM dbo.Members;";
+            string queryString = "SELECT Id,FirstName,LastName FROM dbo.Members;";
 
             try
             {
@@ -65,9 +67,8 @@ namespace RunningClubServices.Dao
         public MembersModel Load(int id)
         {
 
-            //     String commandText = "Select Count([CourseID]) FROM [MySchool].[dbo].[Course] Where Year=@Year";
             var model = new MembersModel();
-            string queryString = "SELECT Id,first_name,last_name FROM dbo.Members Where id = @Id;";
+            string queryString = "SELECT Id,FirstName,LastName FROM dbo.Members Where id = @Id;";
 
             try
             {

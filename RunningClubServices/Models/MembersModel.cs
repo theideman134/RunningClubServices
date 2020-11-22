@@ -9,8 +9,8 @@ namespace RunningClubServices.Models
     {
         public int Id { get; set; }
 
-        public List<AliasModel> Aliases { get; set; } 
-        public List<RaceResultsModel> RacesResults { get; set; }
+   //     public List<AliasModel> Aliases { get; set; } 
+    //    public List<RaceResultsModel> RacesResults { get; set; }
     
     }
 }

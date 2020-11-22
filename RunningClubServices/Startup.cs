@@ -12,6 +12,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using RunningClubServices.Controllers;
 using RunningClubServices.Dao;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace RunningClubServices
 {
@@ -27,10 +29,11 @@ namespace RunningClubServices
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-             
+            var connectionString = "Data Source=TODD-PC\\SQLEXPRESS;Initial Catalog=RunningClub;Integrated Security=True;"; //Asynchronous Processing=true;"; 
 
-
-            services.AddTransient<IMembersDao,MembersSqlDao>();       
+            //    services.AddTransient<IMembersDao,MembersSqlDao>();
+            services.AddTransient<IMembersDao,MembersEFDao>();
+            services.AddDbContext<MembersEFContext>(opt => opt.UseSqlServer(connectionString));
             services.AddControllers();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,7 +49,7 @@ namespace RunningClubServices
             app.UseRouting();
 
             app.UseAuthorization();
-
+           
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
